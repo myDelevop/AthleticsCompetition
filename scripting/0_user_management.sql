@@ -1,0 +1,6 @@
+CREATE USER athletics IDENTIFIED BY athletics;
+
+GRANT CONNECT, RESOURCE, CREATE ANY INDEX TO athletics;
+
+
+COMMIT;

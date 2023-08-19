@@ -1,0 +1,1 @@
+-- Calling to all sql scripts

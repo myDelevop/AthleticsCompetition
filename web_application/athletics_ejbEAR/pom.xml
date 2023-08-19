@@ -1,0 +1,62 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>athletics_ejbEAR</groupId>
+  <artifactId>athletics_ejbEAR</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>ear</packaging>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-ear-plugin</artifactId>
+        <version>3.0.2</version>
+        <configuration>
+          <earSourceDirectory>EarContent</earSourceDirectory>
+          <generateApplicationXml>false</generateApplicationXml>
+          <version>7</version>
+          <defaultLibBundleDir>lib</defaultLibBundleDir>
+          
+          <modules>
+          	<ejbModule>
+          		  <groupId>athletics_ejb</groupId>
+				  <artifactId>athletics_ejb</artifactId>
+<!-- 				  <version>0.0.1-SNAPSHOT</version>        		 -->
+          	</ejbModule>
+          	
+          </modules>
+        </configuration>
+      </plugin>
+      
+	   <plugin>
+	       <artifactId>maven-antrun-plugin</artifactId>
+	       <version>1.8</version>
+	       <executions>
+	           <execution>
+	               <id>copy</id>
+	               <phase>package</phase>
+	               <configuration>
+	                   <target>
+	                       <echo>ANT TASK - copying files....</echo>
+	                       <copy todir="C:\Users\rcaliandro\Documents\wildfly-18.0.1.Final\athletics_BE\deployments" overwrite="true" flatten="true">
+	                           <fileset dir="target" includes="*.ear" >
+	                           </fileset>
+	                       </copy>
+	                   </target>
+	               </configuration>
+	               <goals>
+	                   <goal>run</goal>
+	               </goals>
+	           </execution>
+	       </executions>
+	   </plugin>
+
+    </plugins>
+  </build>
+  <dependencies>
+  	<dependency>
+	  	<groupId>athletics_ejb</groupId>
+	    <artifactId>athletics_ejb</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<type>ejb</type>
+	</dependency>
+  </dependencies>
+</project>

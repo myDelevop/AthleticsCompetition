@@ -1,0 +1,5 @@
+0_user_management.sql -- Script launched by the SYSTEM user, for the creation of the user and for the definition of all his privileges
+
+1_auth_management.sql -- Creation of user and group for the authentication and management authorization 
+
+9999_execution_plan.sql -- Launched by the user just created, and invocation of all the previous individual script

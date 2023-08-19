@@ -1,0 +1,44 @@
+<body class="align-center">
+    <mat-card class="login-card">
+      <div class="align-center">
+        <mat-card-header>
+          <mat-card-title>Welcome to athletics</mat-card-title>
+        </mat-card-header>
+      </div>
+      <mat-card-content>
+        <form [formGroup] = "loginForm" (ngSubmit)="onSubmit()" id="loginForm">
+          <div class="align-center">
+            <table class="login-card-full-width" cellspacing="0">
+              <tr>
+                <td>
+                  <mat-form-field>
+                    <input matInput placeholder="Username" formControlName="username" class="form-control" name="username" required>
+                    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                        <div *ngIf="f.username.errors.required">Username obbligatoria</div>
+                    </div>
+                    </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <mat-form-field>
+                        <input matInput placeholder="Password" formControlName="password" class="form-control" type="password" name="password" required>
+                        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                            <div *ngIf="f.password.errors.required">Password obbligatoria</div>
+                        </div>
+                    </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="align-center">
+                      <button class="login-button" type="submit" mat-raised-button color="primary">Login</button>
+                </div>
+                </td>
+              </tr>
+            </table>
+        </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+</body>

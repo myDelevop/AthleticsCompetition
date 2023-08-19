@@ -1,0 +1,33 @@
+body {
+
+  background-image: url('/assets/img/background-login.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
+
+.align-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-card {
+  width: 230px;
+  background-color: rgba(128,128,128, 0.8);
+
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  display: block;
+  margin-left:auto;
+  margin-right:auto;
+
+  border-style: solid;
+  border-color: rgb(105,105,105);
+
+}
+
+.login-button {
+  min-width: 140px;
+}

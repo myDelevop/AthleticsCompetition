@@ -1,0 +1,111 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>athletics_ws</groupId>
+  <artifactId>athletics_ws</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.5.1</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.0.0</version>
+        <configuration>
+          <warSourceDirectory>WebContent</warSourceDirectory>
+        </configuration>
+      </plugin>
+      
+      
+	   <plugin>
+	       <artifactId>maven-antrun-plugin</artifactId>
+	       <version>1.8</version>
+	       <executions>
+	           <execution>
+	               <id>copy</id>
+	               <phase>package</phase>
+	               <configuration>
+	                   <target>
+	                       <echo>ANT TASK - copying files....</echo>
+	                       <copy todir="C:\Users\rcaliandro\Documents\wildfly-18.0.1.Final\athletics_FE\deployments" overwrite="true" flatten="true">
+	                           <fileset dir="target" includes="*.war" >
+	                           </fileset>
+	                       </copy>
+	                   </target>
+	               </configuration>
+	               <goals>
+	                   <goal>run</goal>
+	               </goals>
+	           </execution>
+	           
+	           <execution>
+	               <id>copyConfiguration</id>
+	               <phase>package</phase>
+	               <configuration>
+	                   <target>
+	                       <echo>ANT TASK - copying files....</echo>
+	                       <copy todir="/opt/athl/fe/config" overwrite="true" flatten="true">
+	                           <fileset dir="config/opt/athl/fe/config" includes="*.properties" >
+	                           </fileset>
+	                       </copy>
+	                   </target>
+	               </configuration>
+	               <goals>
+	                   <goal>run</goal>
+	               </goals>
+	           </execution>
+	           
+	       </executions>
+	   </plugin>
+    </plugins>
+    
+  </build>
+  
+  <dependencies>
+  	<dependency>
+	  <groupId>athletics_ejb</groupId>
+	  <artifactId>athletics_ejb</artifactId>
+	  <version>0.0.1-SNAPSHOT</version>
+	  <classifier>ejb-common</classifier>
+  	</dependency>
+  	
+  	<dependency>
+	    <groupId>javax</groupId>
+	    <artifactId>javaee-web-api</artifactId>
+	    <version>7.0</version>
+	    <scope>provided</scope>
+	</dependency>
+  	
+  							
+  	<dependency>
+	    <groupId>javax.ejb</groupId>
+	    <artifactId>javax.ejb-api</artifactId>
+	    <version>3.2</version>
+	    <scope>provided</scope>
+	</dependency>
+	
+	
+	<dependency>
+		<groupId>com.sun.jersey</groupId>
+		<artifactId>jersey-server</artifactId>
+		<version>1.19</version>
+	    <scope>provided</scope>
+	</dependency>
+	
+	<dependency>
+		<groupId>com.sun.jersey</groupId>
+		<artifactId>jersey-servlet</artifactId>
+		<version>1.19</version>
+		<scope>provided</scope>
+	</dependency>
+	
+  </dependencies>
+  
+</project>

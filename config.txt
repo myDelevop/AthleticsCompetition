@@ -1,0 +1,11 @@
+launch following comands:
+
+git config --global http.sslverify "false"
+git config --global user.email "rockdesires@gmail.com"
+git config --global user.name "Rocco Caliandro"
+
+and download the repository.
+
+- configure Jboss datasource and add the module com.oracle http://www.adam-bien.com/roller/abien/entry/installing_oracle_jdbc_driver_on
+- (Optional) creation of FE and BE Jboss Istances
+- creation of /var/opt/athl and /opt/athl with configuration files

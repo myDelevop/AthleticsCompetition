@@ -1,0 +1,1 @@
+Copy this direcotry to the root "/" of system
